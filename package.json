@@ -10,7 +10,8 @@
   "dependencies": {
     "@c7s/http-errors": "git+ssh://git@github.com/c7s/http-errors.git#dev",
     "axios": "0.17.1",
-    "inversify": "4.10.0"
+    "inversify": "4.10.0",
+    "object-to-map": "2.0.1"
   },
   "devDependencies": {
     "@types/axios": "0.14.0",
