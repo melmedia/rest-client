@@ -2,15 +2,21 @@
   "name": "@c7s/rest-client",
   "version": "0.0.1",
   "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "compile": "./node_modules/.bin/tsc"
+  },
   "dependencies": {
-    "@c7s/http-errors": "git+ssh://git@github.com/c7s/http-errors.git#dev",
+    "@c7s/http-errors": "git+ssh://git@github.com/c7s/http-errors.git#release-20180228-PB-3122",
     "axios": "0.17.1",
-    "inversify": "4.10.0"
+    "inversify": "4.10.0",
+    "object-to-map": "2.0.1"
   },
   "devDependencies": {
     "@types/axios": "0.14.0",
     "tslint": "5.9.1",
-    "tslint-config-airbnb": "5.6.0",
+    "tslint-config-airbnb": "5.7.0",
     "typescript": "2.7.1"
   }
 }

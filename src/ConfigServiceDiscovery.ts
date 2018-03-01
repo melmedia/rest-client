@@ -2,7 +2,7 @@ import { injectable } from 'inversify';
 import { ServiceDiscovery } from './ServiceDiscovery';
 import * as objectToMap from 'object-to-map';
 
-type Config = Map<string, string>;
+export type Config = Map<string, string>;
 
 @injectable()
 export class ConfigServiceDiscovery implements ServiceDiscovery {
