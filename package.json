@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "@c7s/http-errors": "git+ssh://git@github.com/c7s/http-errors.git#dev",
-    "axios": "0.17.1",
-    "inversify": "4.10.0",
+    "axios": "0.18.0",
+    "inversify": "4.11.1",
     "object-to-map": "2.0.1"
   },
   "devDependencies": {
     "@types/axios": "0.14.0",
     "tslint": "5.9.1",
     "tslint-config-airbnb": "5.7.0",
-    "typescript": "2.7.1"
+    "typescript": "2.7.2"
   }
 }
