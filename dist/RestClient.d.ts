@@ -1,7 +1,7 @@
-import { AxiosInstance } from 'axios';
+import { AxiosInstance, AxiosRequestConfig } from 'axios';
 export declare class RestClient {
     protected http: AxiosInstance;
-    constructor(baseUrl: string);
+    constructor(baseUrl: string, axiosParams?: AxiosRequestConfig);
     /**
      * Query attributes of type array will be joined to string, i.e. { id: [1, 2, 3] } => '?id=1,2,3'
      *
