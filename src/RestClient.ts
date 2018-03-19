@@ -1,11 +1,11 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { ValidationError, NotFoundError } from '@c7s/http-errors';
 
 export class RestClient {
   protected http: AxiosInstance;
 
-  constructor(baseUrl: string) {
-    this.http = axios.create({ baseURL: baseUrl });
+  constructor(baseUrl: string, axiosParams: AxiosRequestConfig = {}) {
+    this.http = axios.create({ ...axiosParams, baseURL: baseUrl });
   }
 
   /**
