@@ -24,9 +24,11 @@ class RestClient {
     get(url, query) {
         return __awaiter(this, void 0, void 0, function* () {
             const q = {};
-            for (const param in query) {
-                const value = query[param];
-                q[param] = Array.isArray(value) ? value.join(',') : value;
+            if (undefined !== query) {
+                for (const param in query) {
+                    const value = query[param];
+                    q[param] = Array.isArray(value) ? value.join(',') : value;
+                }
             }
             try {
                 return (yield this.http.get(url, { params: q })).data;

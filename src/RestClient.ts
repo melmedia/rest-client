@@ -15,12 +15,15 @@ export class RestClient {
    * @param {object} query
    * @returns {Promise<Response>}
    */
-  public async get<Response>(url: string, query: object): Promise<Response> {
+  public async get<Response>(url: string, query?: object): Promise<Response> {
     const q: any = {};
-    for (const param in query) {
-      const value: any = (query as any)[param];
-      q[param] = Array.isArray(value) ? value.join(',') : value;
+    if (undefined !== query) {
+      for (const param in query) {
+        const value: any = (query as any)[param];
+        q[param] = Array.isArray(value) ? value.join(',') : value;
+      }
     }
+
     try {
       return (await this.http.get(url, { params: q })).data;
     } catch (e) {
