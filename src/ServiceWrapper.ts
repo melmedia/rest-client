@@ -22,10 +22,10 @@ export abstract class ServiceWrapper {
    * Query attributes of type array will be joined to string, i.e. { id: [1, 2, 3] } => '?id=1,2,3'
    *
    * @param {string} url
-   * @param {object} query
+   * @param {object} query?
    * @returns {Promise<Response>}
    */
-  public async get<Response>(url: string, query: object): Promise<Response> {
+  public async get<Response>(url: string, query?: object): Promise<Response> {
     return this.restClient.get<Response>(url, query);
   }
 

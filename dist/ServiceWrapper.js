@@ -32,7 +32,7 @@ let ServiceWrapper = class ServiceWrapper {
      * Query attributes of type array will be joined to string, i.e. { id: [1, 2, 3] } => '?id=1,2,3'
      *
      * @param {string} url
-     * @param {object} query
+     * @param {object} query?
      * @returns {Promise<Response>}
      */
     get(url, query) {
