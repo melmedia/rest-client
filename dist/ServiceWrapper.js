@@ -8,14 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 const RestClient_1 = require("./RestClient");
@@ -35,30 +27,20 @@ let ServiceWrapper = class ServiceWrapper {
      * @param {object} query?
      * @returns {Promise<Response>}
      */
-    get(url, query) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.restClient.get(url, query);
-        });
+    async get(url, query) {
+        return this.restClient.get(url, query);
     }
-    post(url, body) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.restClient.post(url, body);
-        });
+    async post(url, body) {
+        return this.restClient.post(url, body);
     }
-    put(url, body) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.restClient.put(url, body);
-        });
+    async put(url, body) {
+        return this.restClient.put(url, body);
     }
-    patch(url, body) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.restClient.patch(url, body);
-        });
+    async patch(url, body) {
+        return this.restClient.patch(url, body);
     }
-    delete(url) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.restClient.delete(url);
-        });
+    async delete(url) {
+        return this.restClient.delete(url);
     }
 };
 ServiceWrapper = __decorate([
