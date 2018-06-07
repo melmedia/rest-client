@@ -25,18 +25,20 @@ export abstract class ServiceWrapper {
    *
    * @param {string} url
    * @param {object} query?
+   * @param returnUndefinedInsteadOf404? If !== undefined - return value
+   * instead of throwing NotFoundError on 404 HTTP response code
    * @returns {Promise<Response>}
    */
   public async get<Response>(
     url: string,
     query?: object,
-    isReturnUndefinedInsteadOf404: boolean = false,
-  ): Promise<Response | undefined> {
+    returnUndefinedInsteadOf404?: any,
+  ): Promise<Response | typeof returnUndefinedInsteadOf404> {
     try {
       return this.restClient.get<Response>(url, query);
     } catch (e) {
-      if (e instanceof NotFoundError && isReturnUndefinedInsteadOf404) {
-        return undefined;
+      if (e instanceof NotFoundError && undefined !== returnUndefinedInsteadOf404) {
+        return returnUndefinedInsteadOf404;
       }
       throw e;
     }

@@ -9,9 +9,11 @@ export declare abstract class ServiceWrapper {
      *
      * @param {string} url
      * @param {object} query?
+     * @param returnUndefinedInsteadOf404? If !== undefined - return value
+     * instead of throwing NotFoundError on 404 HTTP response code
      * @returns {Promise<Response>}
      */
-    get<Response>(url: string, query?: object, isReturnUndefinedInsteadOf404?: boolean): Promise<Response | undefined>;
+    get<Response>(url: string, query?: object, returnUndefinedInsteadOf404?: any): Promise<Response | typeof returnUndefinedInsteadOf404>;
     post<Response>(url: string, body?: object): Promise<Response>;
     put<Response>(url: string, body?: object): Promise<Response>;
     patch<Response>(url: string, body?: object): Promise<Response>;

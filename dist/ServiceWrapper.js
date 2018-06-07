@@ -27,15 +27,17 @@ let ServiceWrapper = class ServiceWrapper {
      *
      * @param {string} url
      * @param {object} query?
+     * @param returnUndefinedInsteadOf404? If !== undefined - return value
+     * instead of throwing NotFoundError on 404 HTTP response code
      * @returns {Promise<Response>}
      */
-    async get(url, query, isReturnUndefinedInsteadOf404 = false) {
+    async get(url, query, returnUndefinedInsteadOf404) {
         try {
             return this.restClient.get(url, query);
         }
         catch (e) {
-            if (e instanceof http_errors_1.NotFoundError && isReturnUndefinedInsteadOf404) {
-                return undefined;
+            if (e instanceof http_errors_1.NotFoundError && undefined !== returnUndefinedInsteadOf404) {
+                return returnUndefinedInsteadOf404;
             }
             throw e;
         }
