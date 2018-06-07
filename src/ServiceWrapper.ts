@@ -1,4 +1,5 @@
 import { injectable } from 'inversify';
+import * as querystring from 'querystring';
 import { RestClient } from './RestClient';
 import { ServiceDiscovery } from './ServiceDiscovery';
 
@@ -43,6 +44,13 @@ export abstract class ServiceWrapper {
 
   public async delete<Response>(url: string): Promise<Response> {
     return this.restClient.delete<Response>(url);
+  }
+
+  /**
+   * Convert object to JSON and URL encode to support passing complex data in GET request
+   */
+  public jsonUrlEscape(data: object) {
+    return querystring.escape(JSON.stringify(data));
   }
 
   protected abstract getServiceName(): string;

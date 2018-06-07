@@ -16,5 +16,9 @@ export declare abstract class ServiceWrapper {
     put<Response>(url: string, body?: object): Promise<Response>;
     patch<Response>(url: string, body?: object): Promise<Response>;
     delete<Response>(url: string): Promise<Response>;
+    /**
+     * Convert object to JSON and URL encode to support passing complex data in GET request
+     */
+    jsonUrlEscape(data: object): string;
     protected abstract getServiceName(): string;
 }

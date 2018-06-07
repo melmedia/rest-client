@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
+const querystring = require("querystring");
 const RestClient_1 = require("./RestClient");
 let ServiceWrapper = class ServiceWrapper {
     constructor(serviceDiscovery) {
@@ -41,6 +42,12 @@ let ServiceWrapper = class ServiceWrapper {
     }
     async delete(url) {
         return this.restClient.delete(url);
+    }
+    /**
+     * Convert object to JSON and URL encode to support passing complex data in GET request
+     */
+    jsonUrlEscape(data) {
+        return querystring.escape(JSON.stringify(data));
     }
 };
 ServiceWrapper = __decorate([
