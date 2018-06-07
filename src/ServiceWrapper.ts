@@ -2,6 +2,7 @@ import { injectable } from 'inversify';
 import * as querystring from 'querystring';
 import { RestClient } from './RestClient';
 import { ServiceDiscovery } from './ServiceDiscovery';
+import { NotFoundError } from '@c7s/http-errors';
 
 @injectable()
 export abstract class ServiceWrapper {
@@ -26,8 +27,19 @@ export abstract class ServiceWrapper {
    * @param {object} query?
    * @returns {Promise<Response>}
    */
-  public async get<Response>(url: string, query?: object): Promise<Response> {
-    return this.restClient.get<Response>(url, query);
+  public async get<Response>(
+    url: string,
+    query?: object,
+    isReturnUndefinedInsteadOf404: boolean = false,
+  ): Promise<Response | undefined> {
+    try {
+      return this.restClient.get<Response>(url, query);
+    } catch (e) {
+      if (e instanceof NotFoundError && isReturnUndefinedInsteadOf404) {
+        return undefined;
+      }
+      throw e;
+    }
   }
 
   public async post<Response>(url: string, body?: object): Promise<Response> {

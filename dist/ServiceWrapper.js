@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 const querystring = require("querystring");
 const RestClient_1 = require("./RestClient");
+const http_errors_1 = require("@c7s/http-errors");
 let ServiceWrapper = class ServiceWrapper {
     constructor(serviceDiscovery) {
         this.serviceDiscovery = serviceDiscovery;
@@ -28,8 +29,16 @@ let ServiceWrapper = class ServiceWrapper {
      * @param {object} query?
      * @returns {Promise<Response>}
      */
-    async get(url, query) {
-        return this.restClient.get(url, query);
+    async get(url, query, isReturnUndefinedInsteadOf404 = false) {
+        try {
+            return this.restClient.get(url, query);
+        }
+        catch (e) {
+            if (e instanceof http_errors_1.NotFoundError && isReturnUndefinedInsteadOf404) {
+                return undefined;
+            }
+            throw e;
+        }
     }
     async post(url, body) {
         return this.restClient.post(url, body);

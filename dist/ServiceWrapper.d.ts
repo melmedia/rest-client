@@ -11,7 +11,7 @@ export declare abstract class ServiceWrapper {
      * @param {object} query?
      * @returns {Promise<Response>}
      */
-    get<Response>(url: string, query?: object): Promise<Response>;
+    get<Response>(url: string, query?: object, isReturnUndefinedInsteadOf404?: boolean): Promise<Response | undefined>;
     post<Response>(url: string, body?: object): Promise<Response>;
     put<Response>(url: string, body?: object): Promise<Response>;
     patch<Response>(url: string, body?: object): Promise<Response>;
