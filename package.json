@@ -8,7 +8,7 @@
     "build": "./node_modules/.bin/tsc"
   },
   "dependencies": {
-    "@c7s/http-errors": "git+ssh://git@github.com/c7s/http-errors.git#release-20180606-PB-3273",
+    "@c7s/http-errors": "git+ssh://git@github.com/c7s/http-errors.git#dev",
     "axios": "0.18.0",
     "inversify": "4.13.0",
     "object-to-map": "2.0.1"
