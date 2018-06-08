@@ -51,8 +51,8 @@ let ServiceWrapper = class ServiceWrapper {
     async patch(url, body) {
         return this.restClient.patch(url, body);
     }
-    async delete(url) {
-        return this.restClient.delete(url);
+    async delete(url, query) {
+        return this.restClient.delete(url, query);
     }
     /**
      * Convert object to JSON and URL encode to support passing complex data in GET request

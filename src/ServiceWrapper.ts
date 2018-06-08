@@ -56,8 +56,8 @@ export abstract class ServiceWrapper {
     return this.restClient.patch<Response>(url, body);
   }
 
-  public async delete<Response>(url: string): Promise<Response> {
-    return this.restClient.delete<Response>(url);
+  public async delete<Response>(url: string, query?: object): Promise<Response> {
+    return this.restClient.delete<Response>(url, query);
   }
 
   /**

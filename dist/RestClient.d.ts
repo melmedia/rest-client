@@ -13,6 +13,6 @@ export declare class RestClient {
     post<Response>(url: string, body?: object): Promise<Response>;
     put<Response>(url: string, body?: object): Promise<Response>;
     patch<Response>(url: string, body?: object): Promise<Response>;
-    delete<Response>(url: string): Promise<Response>;
+    delete<Response>(url: string, query?: object): Promise<Response>;
     protected handleError(e: Error | any): Error;
 }
