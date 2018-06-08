@@ -35,7 +35,7 @@ export abstract class ServiceWrapper {
     returnUndefinedInsteadOf404?: any,
   ): Promise<Response | typeof returnUndefinedInsteadOf404> {
     try {
-      return this.restClient.get<Response>(url, query);
+      return await this.restClient.get<Response>(url, query);
     } catch (e) {
       if (e instanceof NotFoundError && undefined !== returnUndefinedInsteadOf404) {
         return returnUndefinedInsteadOf404;

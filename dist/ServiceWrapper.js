@@ -33,7 +33,7 @@ let ServiceWrapper = class ServiceWrapper {
      */
     async get(url, query, returnUndefinedInsteadOf404) {
         try {
-            return this.restClient.get(url, query);
+            return await this.restClient.get(url, query);
         }
         catch (e) {
             if (e instanceof http_errors_1.NotFoundError && undefined !== returnUndefinedInsteadOf404) {
