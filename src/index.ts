@@ -3,6 +3,7 @@ import { ServiceDiscovery } from './ServiceDiscovery';
 import { ConfigServiceDiscovery } from './ConfigServiceDiscovery';
 import { ServiceWrapper } from './ServiceWrapper';
 import { queryIdArray } from './queryIdArray';
+import { formatAxiosError } from './formatAxiosError';
 
 export {
   RestClient,
@@ -10,4 +11,5 @@ export {
   ConfigServiceDiscovery,
   ServiceWrapper,
   queryIdArray,
+  formatAxiosError,
 };
