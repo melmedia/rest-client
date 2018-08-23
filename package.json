@@ -8,15 +8,18 @@
     "build": "./node_modules/.bin/tsc"
   },
   "dependencies": {
-    "@c7s/http-errors": "git+ssh://git@github.com/c7s/http-errors.git#release-20180606-PB-3273",
+    "@c7s/http-errors": "git+ssh://git@github.com/c7s/http-errors.git#release-20180817-264110469",
     "axios": "0.18.0",
     "inversify": "4.13.0",
+    "lodash.pick": "4.4.0",
     "object-to-map": "2.0.1"
   },
   "devDependencies": {
     "@types/axios": "0.14.0",
-    "tslint": "5.9.1",
-    "tslint-config-airbnb": "5.8.0",
-    "typescript": "2.8.3"
+    "@types/lodash.pick": "4.4.3",
+    "@types/node": "10.3.1",
+    "tslint": "5.11.0",
+    "tslint-config-airbnb": "5.9.2",
+    "typescript": "2.9.2"
   }
 }

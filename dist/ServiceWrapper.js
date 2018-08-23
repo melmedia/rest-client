@@ -10,7 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
+const querystring = require("querystring");
 const RestClient_1 = require("./RestClient");
+const http_errors_1 = require("@c7s/http-errors");
 let ServiceWrapper = class ServiceWrapper {
     constructor(serviceDiscovery) {
         this.serviceDiscovery = serviceDiscovery;
@@ -25,10 +27,20 @@ let ServiceWrapper = class ServiceWrapper {
      *
      * @param {string} url
      * @param {object} query?
+     * @param returnUndefinedInsteadOf404? If !== undefined - return value
+     * instead of throwing NotFoundError on 404 HTTP response code
      * @returns {Promise<Response>}
      */
-    async get(url, query) {
-        return this.restClient.get(url, query);
+    async get(url, query, returnUndefinedInsteadOf404) {
+        try {
+            return await this.restClient.get(url, query);
+        }
+        catch (e) {
+            if (e instanceof http_errors_1.NotFoundError && undefined !== returnUndefinedInsteadOf404) {
+                return returnUndefinedInsteadOf404;
+            }
+            throw e;
+        }
     }
     async post(url, body) {
         return this.restClient.post(url, body);
@@ -39,8 +51,14 @@ let ServiceWrapper = class ServiceWrapper {
     async patch(url, body) {
         return this.restClient.patch(url, body);
     }
-    async delete(url) {
-        return this.restClient.delete(url);
+    async delete(url, query) {
+        return this.restClient.delete(url, query);
+    }
+    /**
+     * Convert object to JSON and URL encode to support passing complex data in GET request
+     */
+    jsonUrlEscape(data) {
+        return querystring.escape(JSON.stringify(data));
     }
 };
 ServiceWrapper = __decorate([

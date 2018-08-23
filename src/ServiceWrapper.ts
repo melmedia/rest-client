@@ -1,6 +1,8 @@
 import { injectable } from 'inversify';
+import * as querystring from 'querystring';
 import { RestClient } from './RestClient';
 import { ServiceDiscovery } from './ServiceDiscovery';
+import { NotFoundError } from '@c7s/http-errors';
 
 @injectable()
 export abstract class ServiceWrapper {
@@ -23,10 +25,23 @@ export abstract class ServiceWrapper {
    *
    * @param {string} url
    * @param {object} query?
+   * @param returnUndefinedInsteadOf404? If !== undefined - return value
+   * instead of throwing NotFoundError on 404 HTTP response code
    * @returns {Promise<Response>}
    */
-  public async get<Response>(url: string, query?: object): Promise<Response> {
-    return this.restClient.get<Response>(url, query);
+  public async get<Response>(
+    url: string,
+    query?: object,
+    returnUndefinedInsteadOf404?: any,
+  ): Promise<Response | typeof returnUndefinedInsteadOf404> {
+    try {
+      return await this.restClient.get<Response>(url, query);
+    } catch (e) {
+      if (e instanceof NotFoundError && undefined !== returnUndefinedInsteadOf404) {
+        return returnUndefinedInsteadOf404;
+      }
+      throw e;
+    }
   }
 
   public async post<Response>(url: string, body?: object): Promise<Response> {
@@ -41,8 +56,15 @@ export abstract class ServiceWrapper {
     return this.restClient.patch<Response>(url, body);
   }
 
-  public async delete<Response>(url: string): Promise<Response> {
-    return this.restClient.delete<Response>(url);
+  public async delete<Response>(url: string, query?: object): Promise<Response> {
+    return this.restClient.delete<Response>(url, query);
+  }
+
+  /**
+   * Convert object to JSON and URL encode to support passing complex data in GET request
+   */
+  public jsonUrlEscape(data: object) {
+    return querystring.escape(JSON.stringify(data));
   }
 
   protected abstract getServiceName(): string;

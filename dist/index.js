@@ -8,4 +8,6 @@ const ServiceWrapper_1 = require("./ServiceWrapper");
 exports.ServiceWrapper = ServiceWrapper_1.ServiceWrapper;
 const queryIdArray_1 = require("./queryIdArray");
 exports.queryIdArray = queryIdArray_1.queryIdArray;
+const formatAxiosError_1 = require("./formatAxiosError");
+exports.formatAxiosError = formatAxiosError_1.formatAxiosError;
 //# sourceMappingURL=index.js.map

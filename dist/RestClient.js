@@ -52,9 +52,9 @@ class RestClient {
             throw this.handleError(e);
         }
     }
-    async delete(url) {
+    async delete(url, query) {
         try {
-            return (await this.http.delete(url)).data;
+            return (await this.http.delete(url, { params: query })).data;
         }
         catch (e) {
             throw this.handleError(e);

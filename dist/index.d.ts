@@ -3,4 +3,5 @@ import { ServiceDiscovery } from './ServiceDiscovery';
 import { ConfigServiceDiscovery } from './ConfigServiceDiscovery';
 import { ServiceWrapper } from './ServiceWrapper';
 import { queryIdArray } from './queryIdArray';
-export { RestClient, ServiceDiscovery, ConfigServiceDiscovery, ServiceWrapper, queryIdArray };
+import { formatAxiosError } from './formatAxiosError';
+export { RestClient, ServiceDiscovery, ConfigServiceDiscovery, ServiceWrapper, queryIdArray, formatAxiosError, };

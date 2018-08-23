@@ -55,9 +55,9 @@ export class RestClient {
     }
   }
 
-  public async delete<Response>(url: string): Promise<Response> {
+  public async delete<Response>(url: string, query?: object): Promise<Response> {
     try {
-      return (await this.http.delete(url)).data;
+      return (await this.http.delete(url, { params: query })).data;
     } catch (e) {
       throw this.handleError(e);
     }
