@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 let EnvServiceDiscovery = class EnvServiceDiscovery {
     location(serviceName) {
-        return process.env[`${serviceName.toUpperCase()}-SERVICE`];
+        return process.env[`${serviceName.toUpperCase()}_SERVICE`];
     }
 };
 EnvServiceDiscovery = __decorate([

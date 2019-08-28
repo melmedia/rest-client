@@ -5,7 +5,7 @@ import { ServiceDiscovery } from './ServiceDiscovery';
 export class EnvServiceDiscovery implements ServiceDiscovery {
 
   public location(serviceName: string): string | undefined {
-    return process.env[`${serviceName.toUpperCase()}-SERVICE`];
+    return process.env[`${serviceName.toUpperCase()}_SERVICE`];
   }
 
 }
