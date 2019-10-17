@@ -33,7 +33,10 @@ export class RestClient {
 
   public async post<Response>(url: string, body?: object): Promise<Response> {
     try {
-      return (await this.http.post(url, body)).data;
+      const config = body instanceof Buffer
+        ? { headers: { 'Content-Type': 'application/octet-stream' } }
+        : undefined;
+      return (await this.http.post(url, body, config)).data;
     } catch (e) {
       throw this.handleError(e);
     }
