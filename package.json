@@ -10,17 +10,16 @@
   },
   "dependencies": {
     "@c7s/http-errors": "c7s/http-errors#dev",
-    "axios": "0.18.0",
+    "axios": "0.19.2",
     "inversify": "5.0.1",
     "lodash.pick": "4.4.0",
     "object-to-map": "2.0.1"
   },
   "devDependencies": {
-    "@types/axios": "0.14.0",
-    "@types/lodash.pick": "4.4.4",
-    "@types/node": "8.0.46",
-    "tslint": "5.12.1",
-    "tslint-config-airbnb": "5.11.1",
-    "typescript": "3.2.4"
+    "@types/lodash.pick": "4.4.6",
+    "@types/node": "8.10.59",
+    "tslint": "6.0.0",
+    "tslint-config-airbnb": "5.11.2",
+    "typescript": "3.7.5"
   }
 }
