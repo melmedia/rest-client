@@ -9,7 +9,7 @@
     "tslint": "tslint --project ."
   },
   "dependencies": {
-    "@c7s/http-errors": "c7s/http-errors#dev",
+    "@c7s/http-errors": "c7s/http-errors#release-20200310-476158256",
     "axios": "0.19.2",
     "inversify": "5.0.1",
     "lodash.pick": "4.4.0",
