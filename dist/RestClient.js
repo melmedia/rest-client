@@ -4,7 +4,7 @@ const axios_1 = require("axios");
 const http_errors_1 = require("@c7s/http-errors");
 class RestClient {
     constructor(baseUrl, axiosParams = {}) {
-        this.http = axios_1.default.create(Object.assign({}, axiosParams, { baseURL: baseUrl }));
+        this.http = axios_1.default.create(Object.assign(Object.assign({}, axiosParams), { baseURL: baseUrl }));
     }
     /**
      * Query attributes of type array will be joined to string, i.e. { id: [1, 2, 3] } => '?id=1,2,3'
