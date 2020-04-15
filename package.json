@@ -9,7 +9,7 @@
     "tslint": "tslint --project ."
   },
   "dependencies": {
-    "@melmedia/http-errors": "melmedia/http-errors#dev",
+    "@melmedia/http-errors": "melmedia/http-errors#release-20200409-491457097",
     "axios": "0.19.2",
     "inversify": "5.0.1",
     "lodash.pick": "4.4.0",
