@@ -2,7 +2,7 @@ import { injectable } from 'inversify';
 import * as querystring from 'querystring';
 import { RestClient } from './RestClient';
 import { ServiceDiscovery } from './ServiceDiscovery';
-import { NotFoundError } from '@c7s/http-errors';
+import { NotFoundError } from '@melmedia/http-errors';
 
 @injectable()
 export abstract class ServiceWrapper {

@@ -1,5 +1,5 @@
 {
-  "name": "@c7s/rest-client",
+  "name": "@melmedia/rest-client",
   "version": "0.0.1",
   "license": "UNLICENSED",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
     "tslint": "tslint --project ."
   },
   "dependencies": {
-    "@c7s/http-errors": "c7s/http-errors#dev",
+    "@melmedia/http-errors": "melmedia/http-errors#dev",
     "axios": "0.19.2",
     "inversify": "5.0.1",
     "lodash.pick": "4.4.0",
