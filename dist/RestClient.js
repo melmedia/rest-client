@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = require("axios");
-const http_errors_1 = require("@c7s/http-errors");
+const http_errors_1 = require("@melmedia/http-errors");
 class RestClient {
     constructor(baseUrl, axiosParams = {}) {
         this.http = axios_1.default.create(Object.assign(Object.assign({}, axiosParams), { baseURL: baseUrl }));

@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 const querystring = require("querystring");
 const RestClient_1 = require("./RestClient");
-const http_errors_1 = require("@c7s/http-errors");
+const http_errors_1 = require("@melmedia/http-errors");
 let ServiceWrapper = class ServiceWrapper {
     constructor(serviceDiscovery) {
         this.serviceDiscovery = serviceDiscovery;

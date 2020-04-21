@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { ValidationError, NotFoundError } from '@c7s/http-errors';
+import { ValidationError, NotFoundError } from '@melmedia/http-errors';
 
 export class RestClient {
   protected http: AxiosInstance;
