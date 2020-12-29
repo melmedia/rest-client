@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@melmedia/http-errors": "melmedia/http-errors#release-567961279_podcast",
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "inversify": "5.0.1",
     "lodash.pick": "4.4.0",
     "object-to-map": "2.0.1"
